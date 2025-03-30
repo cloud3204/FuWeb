@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport"
 		content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover">
-	<title>FuWwb</title>
+	<title>My LIFF App3</title>
 	<style>
+
 		button {
 			display: none;
 			width: 50%;
@@ -15,12 +17,15 @@
 		}
 	</style>
 </head>
+
 <body>
 	<button id="btnShare" onclick="sendShare_Gift()" style="display: none;margin: 20px auto;padding: 20px;">Gift</button>
+	<button id="btnShare2" onclick="sendShare_Ladder()" style="display: none;margin: 20px auto;padding: 20px;">Ladder</button>
+	<button id="btnShare3" onclick="sendShare_Pay()" style="display: none;margin: 20px auto;padding: 20px;">Pay</button>
 	<button id="btnLogin" onclick="liff.login()" style="display: none;margin: 20px auto;padding: 20px;">Log In</button>
 	<button id="btnLogOut" onclick="logOut()" style="display: none;margin: 20px auto;padding: 20px;">Log Out</button>
 	<script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
-<script>
+	<script>
 		async function sendShare_Gift() {
 			name = await liff.getProfile().then((profile) => {
 				return profile.displayName;
@@ -435,14 +440,13 @@
 				}
 			}
 		}
-	
-
-	function logOut() {
+		
+		function logOut() {
 			liff.logout()
 			window.location.reload()
 		}
-	
-	async function main() {
+
+		async function main() {
 			await liff.init({ liffId: "2007160752-2lG4AlD3" })
 			if (liff.isLoggedIn()) {
 				document.getElementById("btnShare").style.display = "block"
@@ -458,4 +462,5 @@
 		main()
 	</script>
 </body>
+
 </html>
